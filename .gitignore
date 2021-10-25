@@ -1,0 +1,30 @@
+# Gradle
+.gradle
+build/
+gradle-app.setting
+
+# Maven
+target/
+
+# Eclipse
+.classpath
+.settings/
+.project
+bin/
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+*.uml
+.shelf
+.idea/
+out/
+
+# Misc
+*.log
+*.graphml
+.jqwik-*
+
+# Mac
+.DS_Store

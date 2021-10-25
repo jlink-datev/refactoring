@@ -1,0 +1,40 @@
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitPlatformVersion = '1.8.1'
+    junitJupiterVersion = '5.8.1'
+}
+
+apply plugin: 'java'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+compileTestJava {
+    options.compilerArgs += '-parameters'
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+
+    include '**/*Test.class'
+    include '**/*Tests.class'
+
+    testLogging {
+    		events "PASSED", "FAILED", "SKIPPED"
+    }
+}
+
+dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+}
+
+wrapper {
+    gradleVersion = '7.2'
+}
